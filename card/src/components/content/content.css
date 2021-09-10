@@ -1,0 +1,22 @@
+.content {
+    list-style-type: none;
+    background-color: #4f3b77;
+    padding: 10px;
+}
+
+.content li {
+    text-align: left;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 120px;
+}
+
+li p {
+    margin: 5px 10px;
+}
+
+li p:nth-child(2) {
+    display: inline;
+    margin-left: 50px;
+    text-align: left;
+}
