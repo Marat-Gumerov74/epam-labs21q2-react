@@ -10,7 +10,6 @@ function App(props) {
     const {street, suite, city, zipcode} = props.data.address;
     const address = {street, suite, city, zipcode};
 
-    console.log(props.data)
   return (
     <div className="app">
       <header className="app-header"><UserDetails info={info}/></header>
