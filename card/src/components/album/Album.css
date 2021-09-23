@@ -1,0 +1,10 @@
+.album {
+    width: 95%;
+    border: 1px solid black;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.album h4 {
+    text-align: center;
+}
