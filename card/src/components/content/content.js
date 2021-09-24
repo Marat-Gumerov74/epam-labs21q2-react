@@ -1,11 +1,11 @@
 import './content.css';
 import React from 'react';
-import Album from "../album/Album";
+import AlbumList from "../album-list/album-list";
 
 function Content() {
 
     return (
-            <Album/>
+            <AlbumList/>
     );
 }
 
