@@ -8,7 +8,6 @@ export default class Album extends Component{
     state = {
         albumId: null,
         albumTitle: null,
-        albums: null,
     }
 
     constructor() {
@@ -17,20 +16,23 @@ export default class Album extends Component{
     }
 
     getAlbum() {
-        this.jsonService.getAllAlbums()
-            .then((albums) => {
-                console.log(albums)
+        const id =  Math.floor(Math.random()*9) + 1;
+        this.jsonService.getAlbum(id)
+            .then((album) => {
+                this.setState({
+                    albumId: album.id,
+                    albumTitle: album.title,
+                })
             })
     }
 
     render() {
-        const { albumId, albumTitle, albums} = this.state;
+        const { albumId, albumTitle} = this.state;
         return (
             <section className="album">
-                {/*<h4>Album</h4>*/}
-                {/*<p>number: {albumId}</p>*/}
-                {/*<p>title: {albumTitle}</p>*/}
-                {albums}
+                <h4>Album</h4>
+                <p>number: {albumId}</p>
+                <p>title: {albumTitle}</p>
             </section>
         )
     }

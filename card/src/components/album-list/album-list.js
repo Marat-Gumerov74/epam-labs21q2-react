@@ -1,37 +1,48 @@
+import './album-list.css';
 import {Component} from "react";
-import {JsonService} from "../../modules/jsonService";
-import {logDOM} from "@testing-library/react";
-
+import { JsonService } from '../../modules/jsonService'
 export default class AlbumList extends Component{
 
     jsonService = new JsonService()
 
     state = {
-        albums: null,
+        albumslist: null
     }
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
+    }
+
+    componentDidMount() {
         this.getAlbums()
     }
 
     getAlbums() {
         this.jsonService.getAllAlbums()
             .then((albums) => {
+                let elements = albums.map(album => {
+                    return (
+                        <li key={album.id} className="element">
+                            <p>
+                                <span className="element-id">Id: {album.id}</span>
+                                <span className="element-title">Title: {album.title}</span>
+                            </p>
+                        </li>
+                        )
+                    });
                 this.setState({
-                    albums: albums
+                    albumslist: elements,
                 })
             })
     }
 
     render() {
-
-        const { albums } = this.state;
-
-        return(
-            <div>
-                {console.log(albums)}
-            </div>
+            const {albumslist} = this.state;
+        return (
+            <ul className="album-list">
+                {albumslist}
+            </ul>
         )
     }
 }
