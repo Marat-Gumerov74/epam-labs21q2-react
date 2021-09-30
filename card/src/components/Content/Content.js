@@ -1,4 +1,4 @@
-import './content.css';
+import './Content.css';
 import React from 'react';
 
 function Content(props) {

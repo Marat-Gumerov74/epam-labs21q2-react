@@ -1,4 +1,4 @@
-import './user-info.css';
+import './UserInfo.css';
 import React from 'react';
 
 function UserInfo(props) {

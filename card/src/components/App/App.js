@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
-import UserDetails from "../user-details/user-details";
-import Content from "../content/content";
+import UserDetails from "../UserDetails/UserDetails";
+import Content from "../Content/Content";
 import ava from '../../assets/images/avatar.jpg'
 
 function App(props) {

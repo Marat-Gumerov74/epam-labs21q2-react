@@ -1,7 +1,7 @@
-import './user-details.css';
+import './UserDetails.css';
 import React from 'react';
-import Avatar from "../avatar/avatar";
-import UserInfo from "../user-info/user-info";
+import Avatar from "../Avatar/Avatar";
+import UserInfo from "../UserInfo/UserInfo";
 
 
 function UserDetails(props) {

@@ -1,4 +1,4 @@
-import './avatar.css';
+import './Avatar.css';
 import React from 'react';
 
 
