@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Epam-Labs-FrontEnd-2021q2-react.iml" filepath="$PROJECT_DIR$/.idea/Epam-Labs-FrontEnd-2021q2-react.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/epam-labs21q2-react.iml" filepath="$PROJECT_DIR$/.idea/epam-labs21q2-react.iml" />
     </modules>
   </component>
 </project>

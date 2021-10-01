@@ -1,1 +1,0 @@
-# Epam-Labs-FrontEnd-2021q2-react
