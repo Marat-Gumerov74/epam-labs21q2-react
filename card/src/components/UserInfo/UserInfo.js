@@ -1,9 +1,7 @@
 import './UserInfo.css';
 import React from 'react';
 
-function UserInfo(props) {
-     const {name, username, email} = props.info;
-
+function UserInfo({name, username, email}) {
     return (
         <div className="userInfo">
             <ul>

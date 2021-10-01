@@ -4,13 +4,11 @@ import Avatar from "../Avatar/Avatar";
 import UserInfo from "../UserInfo/UserInfo";
 
 
-function UserDetails(props) {
-    const information = props.info;
-    const avatar = props.info.ava;
+function UserDetails({info, info:{ava}}) {
     return (
-        <div className="userDetails">
-            <Avatar src={avatar}/>
-            <UserInfo info={information}/>
+        <div className="user-details">
+            <Avatar src={ava}/>
+            <UserInfo info={info}/>
         </div>
     );
 }
