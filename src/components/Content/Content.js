@@ -1,26 +1,10 @@
 import './Content.css';
 import React from 'react';
+import AlbumList from "../AlbumList/AlbumList";
 
-function Content({data:{street, suite, city, zipcode}}) {
+function Content() {
     return (
-            <ul className="content">
-                <li>
-                    <p>street:</p>
-                    <p>{street}</p>
-                </li>
-                <li>
-                    <p>suite:</p>
-                    <p>{suite}</p>
-                </li>
-                <li>
-                    <p>city:</p>
-                    <p>{city}</p>
-                </li>
-                <li>
-                    <p>zipcode:</p>
-                    <p>{zipcode}</p>
-                </li>
-            </ul>
+        <AlbumList/>
     );
 }
 
