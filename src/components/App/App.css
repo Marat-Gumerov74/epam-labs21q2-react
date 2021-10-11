@@ -1,16 +1,13 @@
 .app {
   padding: 30px;
   margin: 0 auto;
-  width: 600px;
-  height: 300px;
+  width: 700px;
   color: white;
   border: 1px solid #181212;
   border-radius: 10px;
   background-color: #3b6a77;
   text-align: center;
 }
-
-
 
 .app-header {
   background-color: #4f3b77;
