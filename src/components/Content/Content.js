@@ -7,18 +7,34 @@ function Content() {
     const avatar = ava;
     const jsonService = new JsonService()
 
+    //useStates
     const [albums, setAlbums] = useState([])
+    const [photosAlbumId, setPhotos] = useState([])
     const [activeAlbum, setActiveAlbum] = useState(null)
+    const [isAlbumVisible, setAlbumVisible] =useState(true)
 
+    //useEffects
     useEffect(() => {getAlbums(jsonService)},[]);
-    function getAlbums () {
-        jsonService.getAllAlbums()
-            .then((albums)=> setAlbums(albums))
-    }
+    useEffect(() => {getPhotos(jsonService);setAlbumVisible(false)},);
 
+    //Getters
+    const getAlbums = () => {jsonService.getAllAlbums().then((albums)=> setAlbums(albums))}
+    const getPhotos = () => {jsonService.getPhotos(activeAlbum).then((photos)=> setPhotos(photos))}
+
+    //useCallback
     const albumClickHandler = useCallback((album) => {setActiveAlbum(album)},)
-    useEffect(() =>{
-        console.log(activeAlbum)},[activeAlbum])
+
+    //for Render
+    let albumPhotos = photosAlbumId.map(photo => {
+        console.log(photo)
+        return (
+            <li key={photo.id} id={`${photo.id}`} className="element-photo">
+                <p className="element-title">{photo.title}</p>
+                <p className={"element-url"}>{photo.thumbnailUrl}</p>
+            </li>
+        )
+    })
+
 
     let elements = albums.map(album => {
         return (
@@ -27,12 +43,16 @@ function Content() {
                 onClick={() => albumClickHandler(album.id)}
             >
                 <h4 className="element-title">{album.title}</h4>
+                {activeAlbum}
             </li>
         )
     });
 
     return (
-        <ul>{elements}</ul>
+
+        <ul>
+            {(isAlbumVisible)?  albumPhotos: elements}
+        </ul>
     );
 }
 

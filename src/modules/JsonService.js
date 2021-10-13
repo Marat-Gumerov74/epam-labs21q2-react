@@ -11,4 +11,12 @@ export class JsonService {
         return await this.getResource(`/albums`)
     }
 
+    async getAllPhotos() {
+        return await this.getResource(`/photos`)
+    }
+
+    async getPhotos(id) {
+        return await this.getResource(`/photos?albumId=${id}`)
+    }
+
 }
