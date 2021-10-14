@@ -4,14 +4,12 @@ import UserDetails from "../UserDetails/UserDetails";
 import Content from "../Content/Content";
 import ava from '../../assets/images/avatar.jpg'
 
-function App({data: {name , username, email, address: {street, suite, city, zipcode}}}) {
-    const info = {name, username, email, ava};
-    const address = {street, suite, city, zipcode};
-
+function App({data: {name , username, email}}) {
+  const info = {name, username, email, ava};
   return (
     <div className="app">
       <header className="app-header"><UserDetails info={info}/></header>
-      <section><Content data={address}/></section>
+      <section><Content/></section>
     </div>
   );
 }
