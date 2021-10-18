@@ -1,0 +1,14 @@
+.album-list {
+    list-style-type: none;
+}
+
+.element {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-bottom: 5px;
+}
+
+.element-id {
+    margin-right: 30px;
+}
