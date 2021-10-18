@@ -1,14 +1,11 @@
-.album-list {
-    list-style-type: none;
-}
-
-.element {
-    width: 100%;
+ul {
+    padding-left: 0;
     display: flex;
-    justify-content: left;
-    margin-bottom: 5px;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
-.element-id {
-    margin-right: 30px;
+li {
+    list-style-type: none;
+    margin: 5px;
 }

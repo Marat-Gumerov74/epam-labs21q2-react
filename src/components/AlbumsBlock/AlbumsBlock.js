@@ -6,18 +6,18 @@ import Albums from "../Albums/Albums";
 
 function AlbumsBlock() {
   const jsonService = new JsonService();
-  const value = 1
-  const [albums, setAlbums] = useState(null)
+
+  const [albums, setAlbums] = useState([])
   //https://jsonplaceholder.typicode.com/albums?userId=1
 
   useEffect(() => {
     jsonService.getAllAlbums()
-      .then(album => setAlbums)
+      .then(albums => setAlbums(albums))
   },[])
 
   return(
-    <ul>
-      <Albums/>
+    <ul className='album-list'>
+      <Albums albums={albums}/>
     </ul>
   )
 }

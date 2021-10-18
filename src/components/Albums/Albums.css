@@ -1,0 +1,25 @@
+.element {
+  font-size: 13px;
+  width: 150px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: #eae7e7;
+}
+
+.element-text {
+  background-color: #eae7e7;
+  color: black;
+  font-size: 15px;
+}
+
+.element-id {
+
+  margin-right: 10px;
+}
+
+.element-img {
+  padding: 5px;
+  margin-top: 10px;
+}
