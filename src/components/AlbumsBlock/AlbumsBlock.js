@@ -8,7 +8,6 @@ function AlbumsBlock() {
   const jsonService = new JsonService();
 
   const [albums, setAlbums] = useState([])
-  //https://jsonplaceholder.typicode.com/albums?userId=1
 
   useEffect(() => {
     jsonService.getAllAlbums()
