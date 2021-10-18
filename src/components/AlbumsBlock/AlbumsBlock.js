@@ -1,6 +1,7 @@
 import  './AlbumsBlock.css'
 import React, {useEffect, useState} from "react";
 import {JsonService} from "../../modules/JsonService";
+import Albums from "../Albums/Albums";
 
 
 function AlbumsBlock() {
@@ -14,30 +15,11 @@ function AlbumsBlock() {
       .then(album => setAlbums)
   },[])
 
-  useEffect(() => {
-    let elements = albums.map(album => {
-      return (
-        <li key={album.id} className="element">
-          <p>
-            <span className="element-id">Id:  {album.id}</span>
-            <span className="element-title">Title:  {album.title}</span>
-          </p>
-        </li>
-      )
-    })
-  },[albums])
-
-
-
-
   return(
     <ul>
-      {elements}
+      <Albums/>
     </ul>
-
   )
-
-
 }
 
 export default AlbumsBlock;
