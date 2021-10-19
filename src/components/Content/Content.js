@@ -4,7 +4,11 @@ import AlbumList from "../AlbumList/AlbumList";
 
 function Content() {
   return (
-    <AlbumList/>
+    <>
+      <AlbumList/>
+      <div>начало 4го таска</div>
+    </>
+
   );
 }
 
