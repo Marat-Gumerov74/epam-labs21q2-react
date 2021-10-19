@@ -15,7 +15,9 @@ function  Photos (props){
   })
 
   return (
-    {elements}
+    <>
+      {elements}
+    </>
   )
 }
 

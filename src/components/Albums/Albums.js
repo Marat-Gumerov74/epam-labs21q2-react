@@ -9,19 +9,17 @@ function  Albums (props){
   const {albums}=props;
 
   const [activeAlbum, setActiveAlbum] = useState(null)
-  const [albumPhotos, setAlbumPhotos] = useState( null)
+  const [albumPhotos, setAlbumPhotos] = useState( [])
+
 
   const albumClickHandler = useCallback((id)=>{ setActiveAlbum(id)},)
 
-  useEffect(() =>{ getPhotos(activeAlbum)}, [activeAlbum])
+  useEffect(() =>{ if (activeAlbum) getPhotos(activeAlbum)}, [activeAlbum])
 
   const getPhotos = (activeAlbum) => {
-    jsonService.getPhotos(activeAlbum)
-      .then(albumPhotos => {
-        console.log(albumPhotos);
-        setAlbumPhotos(albumPhotos);
-      })
-  }
+      jsonService.getPhotos(activeAlbum)
+        .then(albumPhotos => setAlbumPhotos(albumPhotos))}
+
 
   let elements = albums.map(album => {
     return (
@@ -36,7 +34,7 @@ function  Albums (props){
     )
   })
 
-  if (albumPhotos) {
+  if (albumPhotos.length > 0) {
     return <Photos albumPhotos={albumPhotos}/>;
   } else {
     return (
