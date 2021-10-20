@@ -11,10 +11,10 @@ function  Albums (props){
   const [activeAlbum, setActiveAlbum] = useState(null)
   const [albumPhotos, setAlbumPhotos] = useState( [])
 
-
-  const albumClickHandler = useCallback((id)=>{ setActiveAlbum(id)},)
+  const albumClickHandler = useCallback((id) => { setActiveAlbum(id)},)
 
   useEffect(() =>{ if (activeAlbum) getPhotos(activeAlbum)}, [activeAlbum])
+  const photosClickHandler = useCallback(() => {setAlbumPhotos([])},)
 
   const getPhotos = (activeAlbum) => {
       jsonService.getPhotos(activeAlbum)
@@ -35,7 +35,15 @@ function  Albums (props){
   })
 
   if (albumPhotos.length > 0) {
-    return <Photos albumPhotos={albumPhotos}/>;
+    return (
+      <div className="album-photos">
+        <button className="btn-back" onClick={() => photosClickHandler()}>Go Back</button>
+        <section className="album-photos-wrapper">
+          <Photos albumPhotos={albumPhotos}/>;
+        </section>
+      </div>
+    )
+
   } else {
     return (
       <ul>
