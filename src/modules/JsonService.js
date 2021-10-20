@@ -16,8 +16,6 @@ export class JsonService {
     return await this.getResource(`/albums?userId=${id}`)
   }
 
-
-
   async getAllPhotos() {
     return await this.getResource(`/photos`)
   }
