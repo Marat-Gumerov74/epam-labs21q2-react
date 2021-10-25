@@ -7,7 +7,6 @@ const defaultState = {
 }
 
 
-
 export const placeholderReduser = (state = defaultState, action) => {
   switch (action.type) {
     case ADD_ALBUMS:

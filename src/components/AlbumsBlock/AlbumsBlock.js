@@ -1,31 +1,46 @@
 import  './AlbumsBlock.css'
 import React, {useEffect, useState} from "react";
-import {JsonService} from "../../modules/JsonService";
 import Albums from "../Albums/Albums";
 import ErrorIndicator from "../ErrorIndicator/ErrorIndicator";
 import {fetchAlbums} from "../../asyncActions/placeholderActions";
+import {useDispatch, useSelector} from "react-redux";
+import {addCustomerAlbumAction} from "../../store/customDataReduser";
 
 
 function AlbumsBlock() {
-  const jsonService = new JsonService();
-
-  const [albums, setAlbums] = useState([])
-  const [isError, setIsError] = useState(false)
-
+  const dispatch = useDispatch();
+  const albums = useSelector(state => state.placeholder.albums)
+  const customers = useSelector(state => state.customData.customAlbums)
 
   useEffect(() => {
-    dispatch(fetchAlbums())
-  },[])
+    dispatch(fetchAlbums());
+  }, []);
+
+  const addAlbum = () => {
+    const newAlbum = {
+      title: 'custom Title',
+      id: Date.now(),
+    }
+    dispatch(addCustomerAlbumAction(newAlbum))
+  }
 
   return(
     <>
       <ul className='album-list'>
-        {isError ? <ErrorIndicator/> :  <Albums albums={albums}/>}
+        { (albums.length > 0) ?
+          <Albums albums={albums}/>:
+          <ErrorIndicator/>
+        }
       </ul>
       <section>
-        <button>Add Album</button>
-        <button>Add Photos</button>
+        <button onClick={() => addAlbum()}>Add Album</button>
       </section>
+      <ul className='album-list'>
+        { (customers.length > 0) ?
+          <Albums albums={customers}/>:
+          <ErrorIndicator/>
+        }
+      </ul>
     </>
 
 
