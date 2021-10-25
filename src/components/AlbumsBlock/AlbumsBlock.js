@@ -19,7 +19,7 @@ function AlbumsBlock() {
   const addAlbum = () => {
     const newAlbum = {
       title: 'custom Title',
-      id: Date.now(),
+      id: Math.floor(Math.random() * (9999 - 1)) + 1,
     }
     dispatch(addCustomerAlbumAction(newAlbum))
   }
