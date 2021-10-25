@@ -2,13 +2,15 @@ import './UserDetails.css';
 import React from 'react';
 import Avatar from "../Avatar/Avatar";
 import UserInfo from "../UserInfo/UserInfo";
+import ava from '../../assets/images/avatar.jpg'
 
-function UserDetails({info:{name, username, email, ava}}) {
-  const dataInfo = {name, username, email};
+
+function UserDetails(props) {
+
   return (
     <div className="user-details">
       <Avatar src={ava}/>
-      <UserInfo data={dataInfo}/>
+      <UserInfo {...props}/>
     </div>
   );
 }

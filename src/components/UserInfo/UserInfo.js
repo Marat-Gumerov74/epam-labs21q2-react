@@ -2,6 +2,7 @@ import './UserInfo.css';
 import React from 'react';
 
 function UserInfo({data:{name, username, email}}) {
+
   return (
     <div className="userInfo">
       <ul>

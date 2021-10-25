@@ -1,14 +1,10 @@
 import './Content.css';
 import React from 'react';
-import AlbumList from "../AlbumList/AlbumList";
+import AlbumsBlock from "../AlbumsBlock/AlbumsBlock";
 
 function Content() {
   return (
-    <>
-      <AlbumList/>
-      <div>начало 4го таска</div>
-    </>
-
+    <AlbumsBlock/>
   );
 }
 
