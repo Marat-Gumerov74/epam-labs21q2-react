@@ -5,12 +5,12 @@ import UserInfo from "../UserInfo/UserInfo";
 import ava from '../../assets/images/avatar.jpg'
 
 
-function UserDetails(props) {
+function UserDetails() {
 
   return (
     <div className="user-details">
       <Avatar src={ava}/>
-      <UserInfo {...props}/>
+      <UserInfo />
     </div>
   );
 }

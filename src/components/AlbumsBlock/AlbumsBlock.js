@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 import {JsonService} from "../../modules/JsonService";
 import Albums from "../Albums/Albums";
 import ErrorIndicator from "../ErrorIndicator/ErrorIndicator";
+import {fetchAlbums} from "../../asyncActions/placeholderActions";
 
 
 function AlbumsBlock() {
@@ -13,15 +14,21 @@ function AlbumsBlock() {
 
 
   useEffect(() => {
-    jsonService.getAllAlbums()
-      .then(albums => setAlbums(albums))
-      .catch(() => setIsError(true))
+    dispatch(fetchAlbums())
   },[])
 
   return(
-    <ul className='album-list'>
-      {isError ? <ErrorIndicator/> :  <Albums albums={albums}/>}
-    </ul>
+    <>
+      <ul className='album-list'>
+        {isError ? <ErrorIndicator/> :  <Albums albums={albums}/>}
+      </ul>
+      <section>
+        <button>Add Album</button>
+        <button>Add Photos</button>
+      </section>
+    </>
+
+
   )
 }
 
