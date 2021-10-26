@@ -26,24 +26,17 @@ function AlbumsBlock() {
 
   return(
     <>
+      <section>
+        <button onClick={() => addAlbum()}>Add custom Album</button>
+      </section>
       <ul className='album-list'>
-        { (albums.length > 0) ?
+        {(albums.length > 0) ?
           <Albums/>:
           <ErrorIndicator/>
         }
       </ul>
-      <section>
-        <button onClick={() => addAlbum()}>Add Album</button>
-      </section>
-      {/*<ul className='album-list'>*/}
-      {/*  { (customers.length > 0) ?*/}
-      {/*    <Albums albums={customers}/>:*/}
-      {/*    <ErrorIndicator/>*/}
-      {/*  }*/}
-      {/*</ul>*/}
+
     </>
-
-
   )
 }
 
