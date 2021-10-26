@@ -10,7 +10,7 @@ import {addCustomerAlbumAction} from "../../store/customDataReduser";
 function AlbumsBlock() {
   const dispatch = useDispatch();
   const albums = useSelector(state => state.placeholder.albums)
-  const customers = useSelector(state => state.customData.customAlbums)
+  //const customers = useSelector(state => state.customData.customAlbums)
 
   useEffect(() => {
     dispatch(fetchAlbums());

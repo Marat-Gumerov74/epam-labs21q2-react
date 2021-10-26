@@ -1,15 +1,18 @@
 import React from "react";
+import {useDispatch, useSelector} from "react-redux";
 
-function  Photos (props){
-  const {albumPhotos}=props;
+function  Photos (){
+  const dispatch = useDispatch();
+  const photos = useSelector(state => state.placeholder.photos)
 
-  let elements = albumPhotos.map(album => {
+
+  let elements = photos.map(photo => {
     return (
-      <li key={album.id} className="element">
+      <li key={photo.id} className="element">
         <p className='element-text'>
-          <span className="element-id">{album.id}</span>
+          <span className="element-id">{photo.id}</span>
         </p>
-        <img  className="element-img" src={album.thumbnailUrl} alt={"picture"}/>
+        <img  className="element-img" src={photo.thumbnailUrl} alt={"picture"}/>
       </li>
     )
   })
