@@ -1,10 +1,10 @@
 import  './AlbumsBlock.css'
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import Albums from "../Albums/Albums";
 import ErrorIndicator from "../ErrorIndicator/ErrorIndicator";
 import {fetchAlbums} from "../../asyncActions/placeholderActions";
 import {useDispatch, useSelector} from "react-redux";
-import {addCustomerAlbumAction} from "../../store/customDataReduser";
+import {addCustomerAlbumAction, addCustomerPhotoAction} from "../../store/customDataReduser";
 
 
 function AlbumsBlock() {
@@ -24,10 +24,20 @@ function AlbumsBlock() {
     dispatch(addCustomerAlbumAction(newAlbum))
   }
 
+  const addPhoto = () => {
+    const newPhoto = {
+      id: Math.floor(Math.random() * (9999 - 1)) + 1,
+      title: "mew mew",
+      thumbnailUrl: "https://via.placeholder.com/150/92c952",
+    }
+    dispatch(addCustomerPhotoAction(newPhoto))
+  }
+
   return(
     <>
       <section>
         <button onClick={() => addAlbum()}>Add custom Album</button>
+        <button onClick={() => addPhoto()}>Add custom Photo</button>
       </section>
       <ul className='album-list'>
         {(albums.length > 0) ?
