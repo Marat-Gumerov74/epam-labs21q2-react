@@ -1,10 +1,10 @@
 import React from "react";
 import {useSelector} from "react-redux";
 
-function  Photos (){
-  const photos = useSelector(state => state.placeholder.photos)
+function  CustomPhotos (){
+  const customPhotos = useSelector( state => state.customData.customPhotos)
 
-  let elements = photos.map(photo => {
+  let customElements = customPhotos.map(photo => {
     return (
       <li key={photo.id} className="element">
         <p className='element-text'>
@@ -19,9 +19,9 @@ function  Photos (){
 
   return (
     <>
-      {photos.length >0 ? elements : isClear}
+      {customPhotos.length > 0 ? customElements : isClear}
     </>
   )
 }
 
-export default Photos;
+export default CustomPhotos;
