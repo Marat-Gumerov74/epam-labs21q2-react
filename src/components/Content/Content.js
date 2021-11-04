@@ -1,10 +1,25 @@
 import './Content.css';
-import React from 'react';
-import AlbumsBlock from "../AlbumsBlock/AlbumsBlock";
+import React, {useState} from 'react';
+import Albums from "../Albums/Albums";
+import Modal from "../Modal/Modal";
 
 function Content() {
+  const [modalActive, setModalActive] = useState(false)
+
+  const addAlbumClickHandler = () => {
+    setModalActive(true)
+  }
+
   return (
-    <AlbumsBlock/>
+    <>
+      <div>
+        <button className="btn-menu" onClick={addAlbumClickHandler}>Add Album</button>
+      </div>
+      <Albums/>
+      <Modal  active = {modalActive} setActive={setModalActive}>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, nostrum!</p>
+      </Modal>
+    </>
   );
 }
 
