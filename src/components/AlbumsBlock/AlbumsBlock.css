@@ -1,0 +1,16 @@
+ul {
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+li {
+    list-style-type: none;
+    margin: 5px;
+}
+
+.btn-menu {
+    width: 200px;
+    margin: 0 auto;
+}
