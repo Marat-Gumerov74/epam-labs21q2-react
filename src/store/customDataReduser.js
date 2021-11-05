@@ -7,10 +7,13 @@ const defaultState = {
 const ADD_CUSTOM_ALBUM = 'ADD_CUSTOM_ALBUM';
 const ADD_CUSTOM_PHOTO = 'ADD_CUSTOM_PHOTO';
 const GET_CUSTOM_PHOTOS = 'GET_CUSTOM_PHOTOS';
-const  SET_ACTIVE_ALBUM = ' SET_ACTIVE_ALBUM';
+const  SET_ACTIVE_ALBUM = 'SET_ACTIVE_ALBUM';
+const CLEAR_ACTIVE_ALBUM = 'CLEAR_ACTIVE_ALBUM';
 
 export const customDataReduser = (state = defaultState, action) => {
   switch (action.type) {
+    case CLEAR_ACTIVE_ALBUM:
+      return {...state, activeAlbum: null}
     case  SET_ACTIVE_ALBUM:
       return {...state, activeAlbum: action.payLoad}
     case ADD_CUSTOM_ALBUM:
@@ -28,3 +31,4 @@ export const addCustomerAlbumAction = (payLoad) => ({type: ADD_CUSTOM_ALBUM, pay
 export const addCustomerPhotoAction = (payLoad) => ({type: ADD_CUSTOM_PHOTO, payLoad})
 export const getCustomerPhotosAction = (payLoad) => ({type: GET_CUSTOM_PHOTOS, payLoad})
 export const setCustomerActiveAlbumAction = (payLoad) => ({type: SET_ACTIVE_ALBUM, payLoad})
+export const clearCustomerActiveAlbumAction = (paiLoad) => ({type: CLEAR_ACTIVE_ALBUM})
