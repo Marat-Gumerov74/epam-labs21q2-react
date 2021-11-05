@@ -19,6 +19,7 @@ function  CustomPhotos (){
 
   return (
     <>
+
       {customPhotos.length > 0 ? customElements : isClear}
     </>
   )

@@ -3,20 +3,24 @@ import React, {useState} from "react";
 import pic from '../../assets/images/image_10905190754015565846.gif'
 import Photos from "../Photos/Photos";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchPhotos} from "../../asyncActions/placeholderActions";
-import {addCustomerPhotoAction, getCustomerPhotosAction} from "../../store/customDataReduser";
+import {
+  addCustomerPhotoAction,
+  getCustomerPhotosAction,
+  setCustomerActiveAlbumAction
+} from "../../store/customDataReduser";
 import CustomPhotos from "../CustomPhotos/CustomPhotos";
 
 function  Albums () {
   const dispatch = useDispatch();
   const customAlbums = useSelector(state => state.customData.customAlbums)
-  const [isActiveAlbum, setIsActiveAlbum] = useState(true)
+  const [isActiveAlbum, setIsActiveAlbum] = useState(false)
   const [activeAlbum, setActiveAlbum] = useState(null)
 
   const customAlbumClickHandler = (id) => {
-    dispatch(getCustomerPhotosAction(id))
-    setActiveAlbum(id)
-    setIsActiveAlbum(false)
+    //dispatch(getCustomerPhotosAction(id))
+    // setActiveAlbum(id)
+    setIsActiveAlbum(true)
+    dispatch(setCustomerActiveAlbumAction(id))
   }
 
   const addPhoto = (albumId) => {
@@ -33,19 +37,6 @@ function  Albums () {
     setActiveAlbum(false)
   }
 
-  // let elements = albums.map(album => {
-  //   return (
-  //     <li key={album.id} className="element"
-  //         onClick={()=>albumClickHandler(album.id)}>
-  //       <p className='element-text'>
-  //         <span className="element-id">{album.id}</span>
-  //         <span className="element-title">Title: {album.title}</span>
-  //       </p>
-  //       <img className="element-img" src={pic} alt="cat"/>
-  //     </li>
-  //   )
-  // })
-
   let customElements = customAlbums.map(album => {
     return (
       <li key={album.id} className="element"
@@ -59,23 +50,23 @@ function  Albums () {
     )
   })
 
+  let albumsBlock = <ul>
+                      {customElements.length ? customElements : <p>No custom albums</p>}
+                    </ul>
+
   let photosBlock = <div className="album-photos">
-                      <button className="btn-menu" onClick={() => addPhoto(activeAlbum)}>Add custom Photo</button>
-                      <button className="btn-back" onClick={() => goBackHandler()}>Go Back</button>
-                      <section className="album-photos-wrapper">
-                        { isActiveAlbum ? <Photos/> : <CustomPhotos/>}
-                      </section>
-                    </div>
+    <button className="btn-menu" onClick={() => addPhoto(activeAlbum)}>Add custom Photo</button>
+    <button className="btn-back" onClick={() => goBackHandler()}>Go Back</button>
+    <section className="album-photos-wrapper">
+      { isActiveAlbum ? <Photos/> : <CustomPhotos/>}
+    </section>
+  </div>
 
-  let emptyMessage = <p>No custom albums</p>
-
-  let componentBlock = customElements.length ? customElements : emptyMessage
-
-   return (
-    <ul>
-      {activeAlbum ? photosBlock : componentBlock}
-    </ul>
-  )
+  return (
+      <>
+        {(isActiveAlbum) ? <CustomPhotos/> : albumsBlock}
+      </>
+   )
 }
 
 export default Albums;

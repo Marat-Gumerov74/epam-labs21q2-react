@@ -1,3 +1,18 @@
+ul {
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+
+li {
+  list-style-type: none;
+  margin: 5px;
+}
+
+
+
 .element {
   font-size: 13px;
   width: 150px;
