@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import Modal from "../Modal/Modal";
-import { addCustomerPhotoAction, clearCustomerActiveAlbumAction} from "../../store/customDataReduser";
+import { addCustomerPhotoAction} from "../../store/customDataReduser";
+import cat from '../../assets/images/sticker.png'
 
 function  Photos ({activeAlbum}) {
   const dispatch = useDispatch();
   const photos = useSelector(state => state.customData.customPhotos)
-  console.log("photos", photos)
   const [listPhotos, setListPhotos] = useState(null)
   const [modalActive, setModalActive] = useState(false)
   const [title, setTitle] = useState(null)
@@ -16,24 +16,20 @@ function  Photos ({activeAlbum}) {
   useEffect(() => {if (photos.length > 0) buildPhotos()},[photos]);
 
   const buildPhotos = () => {
-    console.log(`buildPhotos`)
     if (photos.length > 0){
-      let sortPhotos = photos.find(photo => photo.albumId === activeAlbum)
-
-      console.log("sortPhotos", sortPhotos)
-
-      sortPhotos.map(photo => {
+      let sortPhotos = photos.filter(photo => photo.albumId === activeAlbum)
+      const arr = sortPhotos.map(photo => {
         return (
           <li key={photo.id} className="element">
             <p className='element-text'>
-              <span className="element-id">{photo.id}</span>
+              <span className="element-id">{photo.title}</span>
             </p>
             <img  className="element-img" src={photo.thumbnailUrl} alt={"cat"}/>
           </li>
         )
       })
-      console.log(" MAP sortPhotos", sortPhotos)
-      let listPhotos = <ul>{sortPhotos}</ul>;
+
+      let listPhotos = <ul>{arr}</ul>;
       setListPhotos(listPhotos)
     }
   }
@@ -61,8 +57,8 @@ function  Photos ({activeAlbum}) {
     const newPhoto = {
       albumId: activeAlbum,
       id: Math.floor(Math.random() * (9999 - 1)) + 1,
-      title: "mew mew",
-      thumbnailUrl: "https://via.placeholder.com/150/92c952",
+      title: title,
+      thumbnailUrl: cat,
     }
     dispatch(addCustomerPhotoAction(newPhoto))
   }

@@ -2,15 +2,15 @@ import './Content.css';
 import React, {useEffect, useState} from 'react';
 import Albums from "../Albums/Albums";
 import Modal from "../Modal/Modal";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addCustomerAlbumAction} from "../../store/customDataReduser";
 
 function Content() {
   const dispatch = useDispatch();
   const [modalActive, setModalActive] = useState(false)
   const [title, setTitle] = useState(null)
+  const activeAlbum = useSelector(state => state.customData.activeAlbum)
   let textInput = React.createRef()
-
 
   const addAlbumClickHandler = () => {
     setModalActive(true)
@@ -60,7 +60,7 @@ function Content() {
 
   return (
     <>
-      {buttonPanel}
+      { !activeAlbum ? buttonPanel : null}
       <Albums/>
       {modalBlock}
     </>

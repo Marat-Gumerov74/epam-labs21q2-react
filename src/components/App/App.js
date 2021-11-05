@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-import UserDetails from "../UserDetails/UserDetails";
 import Content from "../Content/Content";
 
 function App() {

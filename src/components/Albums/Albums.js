@@ -3,17 +3,21 @@ import React, {useState} from "react";
 import pic from '../../assets/images/image_10905190754015565846.gif'
 import Photos from "../Photos/Photos";
 import {useDispatch, useSelector} from "react-redux";
+import {setCustomerActiveAlbumAction} from "../../store/customDataReduser";
 
 function  Albums () {
+  const dispatch = useDispatch();
   const customAlbums = useSelector(state => state.customData.customAlbums)
   const [activeAlbum, setActiveAlbum] = useState(null)
 
   const customAlbumClickHandler = (id) => {
     setActiveAlbum(id)
+    dispatch(setCustomerActiveAlbumAction(id))
   }
 
   const goBackHandler = () => {
     setActiveAlbum(null)
+    dispatch(setCustomerActiveAlbumAction())
   }
 
   let customElements = customAlbums.map(album => {
