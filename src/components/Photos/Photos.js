@@ -6,7 +6,6 @@ import { addCustomerPhotoAction, clearCustomerActiveAlbumAction} from "../../sto
 function  Photos ({activeAlbum}) {
   const dispatch = useDispatch();
   const photos = useSelector(state => state.customData.customPhotos)
-  console.log("photos", photos)
   const [listPhotos, setListPhotos] = useState(null)
   const [modalActive, setModalActive] = useState(false)
   const [title, setTitle] = useState(null)
@@ -16,13 +15,9 @@ function  Photos ({activeAlbum}) {
   useEffect(() => {if (photos.length > 0) buildPhotos()},[photos]);
 
   const buildPhotos = () => {
-    console.log(`buildPhotos`)
     if (photos.length > 0){
-      let sortPhotos = photos.find(photo => photo.albumId === activeAlbum)
-
-      console.log("sortPhotos", sortPhotos)
-
-      sortPhotos.map(photo => {
+      let sortPhotos = photos.filter(photo => photo.albumId === activeAlbum)
+      const arr = sortPhotos.map(photo => {
         return (
           <li key={photo.id} className="element">
             <p className='element-text'>
@@ -32,8 +27,9 @@ function  Photos ({activeAlbum}) {
           </li>
         )
       })
-      console.log(" MAP sortPhotos", sortPhotos)
-      let listPhotos = <ul>{sortPhotos}</ul>;
+
+      console.log(" MAP sortPhotos", arr)
+      let listPhotos = <ul>{arr}</ul>;
       setListPhotos(listPhotos)
     }
   }
@@ -61,7 +57,7 @@ function  Photos ({activeAlbum}) {
     const newPhoto = {
       albumId: activeAlbum,
       id: Math.floor(Math.random() * (9999 - 1)) + 1,
-      title: "mew mew",
+      title: title,
       thumbnailUrl: "https://via.placeholder.com/150/92c952",
     }
     dispatch(addCustomerPhotoAction(newPhoto))
