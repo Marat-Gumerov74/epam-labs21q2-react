@@ -4,9 +4,7 @@ import './index.css';
 import App from './components/App/App';
 import {Provider} from "react-redux";
 import {store} from './store/index'
-// const action = { type: '', payload: ''
-//
-// }
+
 
 ReactDOM.render(
   <Provider store={store}>
