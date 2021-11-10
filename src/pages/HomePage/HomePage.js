@@ -11,7 +11,7 @@ const HomePage = () => {
 
   return isAuth ? (
     <div>
-      <h1>Welcome</h1>
+      <h1>Welcome {email}</h1>
 
       <button
         onClick={()=> dispatch(removeUser())}

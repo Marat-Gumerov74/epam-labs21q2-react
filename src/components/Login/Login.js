@@ -31,7 +31,6 @@ const Login = () => {
       handleClick={handleLogin}
     />
   )
-
 }
 
 export default Login
