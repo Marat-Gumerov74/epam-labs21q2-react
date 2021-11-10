@@ -4,11 +4,14 @@ import Login from "../../components/Login/Login";
 const LoginPage = () => {
   return (
     <div>
-      <h1>Login</h1>
-      <Login />
-      <p>
-        Or <Link to="/register">register</Link>
-      </p>
+      <header>
+        <h1>Login</h1>
+        <Login />
+        <p>
+          Or <Link to="/register">register</Link>
+        </p>
+      </header>
+      <>Albums</>
     </div>
   )
 }

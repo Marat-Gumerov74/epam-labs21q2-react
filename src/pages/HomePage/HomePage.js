@@ -11,11 +11,13 @@ const HomePage = () => {
 
   return isAuth ? (
     <div>
-      <h1>Welcome {email}</h1>
-
-      <button
-        onClick={()=> dispatch(removeUser())}
-      >Log out from {email}</button>
+      <header>
+        <h1>Welcome {email}</h1>
+        <button onClick={()=> dispatch(removeUser())}>
+          Log out from {email}
+        </button>
+      </header>
+      <>CustomAlbum</>
     </div>
   ) : (
     <Redirect to="/login" />
