@@ -1,0 +1,17 @@
+.header {
+  min-width: 800px;
+  background: #6464bd;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header__title {
+  text-align: center;
+  margin: 5px;
+}
+
+.header__text {
+  text-align: end;
+  margin-right: 10px;
+}

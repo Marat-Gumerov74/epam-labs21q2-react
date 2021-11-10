@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import Login from "../../components/Login/Login";
+import "./LoginPage.css"
 
 const LoginPage = () => {
   return (
     <div>
-      <header>
-        <h1>Login</h1>
+      <header className="header">
+        <h2 className="header__title">Welcom to public Ablums page</h2>
         <Login />
-        <p>
+        <p className="header__text">
           Or <Link to="/register">register</Link>
         </p>
       </header>

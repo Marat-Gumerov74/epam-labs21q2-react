@@ -11,10 +11,10 @@ const HomePage = () => {
 
   return isAuth ? (
     <div>
-      <header>
-        <h1>Welcome {email}</h1>
-        <button onClick={()=> dispatch(removeUser())}>
-          Log out from {email}
+      <header className="header">
+        <h1 className="header__title">Welcome {email}</h1>
+        <button className='btn' onClick={()=> dispatch(removeUser())}>
+          Log out
         </button>
       </header>
       <>CustomAlbum</>
