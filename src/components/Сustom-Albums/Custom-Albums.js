@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import ErrorIndicator from "../ErrorIndicator/ErrorIndicator";
 import './Custom-Albums.css'
 import {clearCustomerActiveAlbumAction, setCustomerActiveAlbumAction} from "../../store/customDataReduser";
 import CustomPhotos from "../Custom-Photos/Custom-Photos";
@@ -33,21 +32,25 @@ const CustomAlbums = () => {
     )
   })
 
-  let AlbumList = <ul>
-    {customElements.length ? customElements : <p>No custom albums</p>}
-  </ul>
+  let AlbumList = (
+    <ul>
+      {customElements.length ? customElements : <p className="msg-text">No custom albums</p>}
+    </ul>
+  )
 
-  let photosBlock = <div>
-    <button className="btn-back" onClick={goBackHandler}>Go Back</button>
+  let photosBlock = (
     <div>
-      <CustomPhotos activeAlbum={activeAlbum}/>
+      <button className="btn-back" onClick={goBackHandler}>Go Back</button>
+      <div>
+        <CustomPhotos activeAlbum={activeAlbum}/>
+      </div>
     </div>
-  </div>
+  )
 
   return (
-    <>
+    <div className="wrapper__albums-block">
       {(activeAlbum) ? photosBlock : AlbumList}
-    </>
+    </div>
   )
 }
 

@@ -1,4 +1,4 @@
-.custom__content {
+.wrapper__albums-block {
   min-width: 800px;
   background: #6464bd;
   padding: 10px;
@@ -16,4 +16,10 @@ li {
   margin: 5px;
   background: #a2a1a1;
   color: #101010;
+}
+
+.btn-back {
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 3px;
 }

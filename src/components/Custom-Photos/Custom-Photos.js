@@ -22,7 +22,7 @@ const CustomPhotos = ({activeAlbum}) => {
       let sortPhotos = photos.filter(photo => photo.albumId === activeAlbum)
       const arr = sortPhotos.map(photo => {
         return (
-          <li key={photo.id} className="element">
+          <li key={photo.id} className="custom-element">
             <p className='element-text'>
               <span className="element-id">{photo.title}</span>
             </p>
@@ -31,7 +31,7 @@ const CustomPhotos = ({activeAlbum}) => {
         )
       })
 
-      let listPhotos = <ul>{arr}</ul>;
+      let listPhotos = <ul className="list-photo">{arr}</ul>;
       setListPhotos(listPhotos)
     }
   }
@@ -80,12 +80,16 @@ const CustomPhotos = ({activeAlbum}) => {
     </section>
   </Modal>
 
-  let btnBlock = <div>
-    <button className="btn-menu" onClick={addPhotoClickHandler}>Add Photo</button>
-    <div>Opened album # {activeAlbum}</div>
-  </div>
+  let btnBlock = (
+    <div>
+      <button className="btn-menu btn-add" onClick={addPhotoClickHandler}>Add Photo</button>
+      <div className="info-album">Opened album user  (id album:{activeAlbum})</div>
+    </div>
+  )
 
-  const photosEmptyMessage = <p>There were no photos here</p>
+  const photosEmptyMessage = (
+    <p className="msg-text">There were no photos here</p>
+  )
 
   return (
     <>

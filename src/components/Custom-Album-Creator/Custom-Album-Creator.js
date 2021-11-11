@@ -54,9 +54,11 @@ const CustomAlbumCreator = () => {
     </section>
   </Modal>
 
-  const buttonPanel = <div>
-    <button className="btn-menu" onClick={addAlbumClickHandler}>Add Album</button>
-  </div>
+  const buttonPanel = (
+    <div className="wrapper__btn-menu">
+      <button className="btn-menu" onClick={addAlbumClickHandler}>Add Album</button>
+    </div>
+  )
 
   return (
     <>

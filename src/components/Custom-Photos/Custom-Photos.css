@@ -1,0 +1,43 @@
+.btn-add {
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 3px;
+}
+
+.info-album {
+  color: white;
+}
+
+.list-photo {
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.msg-text {
+  margin: 5px 0 5px 50px;
+  color: white;
+  font-size: 24px;
+}
+.element-id {
+  color: white;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.custom-element {
+  width: 100px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.element-img {
+  width: 100%;
+  display: block;
+  vertical-align: top;
+  overflow: hidden;
+}

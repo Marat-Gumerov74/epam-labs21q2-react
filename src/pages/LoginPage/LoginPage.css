@@ -12,6 +12,20 @@
 }
 
 .header__text {
+   width: 100px;
   text-align: end;
+  margin-left: 75%;
   margin-right: 10px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+  border: 1px solid #c7c6c6;
 }

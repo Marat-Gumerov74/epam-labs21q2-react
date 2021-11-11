@@ -58,3 +58,9 @@
   font-size: 24px;
 }
 
+.wrapper__btn-menu {
+  min-width: 800px;
+  background: #6464bd;
+  padding: 10px;
+}
+

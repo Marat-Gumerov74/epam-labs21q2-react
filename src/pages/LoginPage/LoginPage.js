@@ -10,7 +10,7 @@ const LoginPage = () => {
         <h2 className="header__title">Welcom to public Ablums page</h2>
         <Login />
         <p className="header__text">
-          Or <Link to="/register">register</Link>
+          Or <Link className="link" to="/register">register</Link>
         </p>
       </header>
       <PublicAlbums />
