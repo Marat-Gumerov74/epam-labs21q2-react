@@ -1,0 +1,19 @@
+.content {
+  min-width: 800px;
+  background: #6464bd;
+  padding: 10px;
+}
+
+.content__list {
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+li {
+  list-style-type: none;
+  margin: 5px;
+  background: #a2a1a1;
+  color: #101010;
+}

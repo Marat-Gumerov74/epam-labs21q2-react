@@ -3,6 +3,8 @@ import {useDispatch} from 'react-redux'
 import { useAuth } from '../../hooks/use-auth';
 import {removeUser} from '../../store/slices/userSlice'
 import './HomePage.css'
+import CustomAlbums from "../../components/Сustom-Albums/Custom-Albums";
+import CustomAlbumCreator from "../../components/Custom-Album-Creator/Custom-Album-Creator";
 
 
 const HomePage = () => {
@@ -17,7 +19,7 @@ const HomePage = () => {
           Log out
         </button>
       </header>
-      <>CustomAlbum</>
+      <CustomAlbumCreator/>
     </div>
   ) : (
     <Redirect to="/login" />

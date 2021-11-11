@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchAlbums, fetchPhotos} from "../../store/asyncActions/placeholderActions";
-import PublickPhotos from "../Public-Photos/Publick-Photos";
+import PublickPhotos from "../Public-Photos/Public-Photos";
 import ErrorIndicator from "../ErrorIndicator/ErrorIndicator";
+import './Public-Albums.css'
 
 
 const PublicAlbums = () => {
@@ -45,12 +46,11 @@ const PublicAlbums = () => {
   )
 
   return(
-    <div>
-      <ul>
+    <div className="content">
+      <ul className="content__list">
         { activeAlbum ? <PublickPhotos /> : AlbumsBlock}
       </ul>
     </div>
-
   )
 }
 

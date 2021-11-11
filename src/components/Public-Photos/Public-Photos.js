@@ -1,9 +1,8 @@
 import React from "react";
 import {useSelector} from "react-redux";
 
-const PublickPhotos = () => {
+const PublicPhotos = () => {
   const photos = useSelector(state => state.placeholder.photos)
- console.log(`photos`, photos)
 
   let elements = photos.map(photo => {
    return (
@@ -16,7 +15,7 @@ const PublickPhotos = () => {
    )
   })
 
-  let isClear = (<p>There were no photos here</p>);
+  const isClear = (<p>There were no photos here</p>);
 
   return (
     <ul>
@@ -25,4 +24,4 @@ const PublickPhotos = () => {
   )
 }
 
-export default PublickPhotos
+export default PublicPhotos
