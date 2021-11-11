@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Login from "../../components/Login/Login";
 import "./LoginPage.css"
+import PublicAlbums from "../../components/Public-Albums/Public-Albums";
 
 const LoginPage = () => {
   return (
@@ -12,7 +13,7 @@ const LoginPage = () => {
           Or <Link to="/register">register</Link>
         </p>
       </header>
-      <>Albums</>
+      <PublicAlbums />
     </div>
   )
 }
