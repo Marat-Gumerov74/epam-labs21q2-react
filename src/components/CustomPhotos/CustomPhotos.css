@@ -1,0 +1,4 @@
+.album-photos {
+  display: flex;
+  flex-direction: column;
+}
